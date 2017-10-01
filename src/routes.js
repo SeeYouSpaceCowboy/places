@@ -1,14 +1,17 @@
 import React from 'react'
 import { IndexRoute, Route } from 'react-router'
 import App from './App'
+import MainMap from './containers/MainMap'
 
 export default (
   <Route path='/' component={ App }>
+    <IndexRoute component={ MainMap }/>
+    <Route path='/path' component={ MainMap }/>
   </Route>
 )
 
 // <Route path='/' component={ App }>
-//   <IndexRoute component={ componentName}/>
+//   <IndexRoute component={ componentName }/>
 //   <Route path='/path' component={ componentName }/>
 // </Route>
 
