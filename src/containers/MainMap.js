@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
-import SideNav from './SideNav'
+import '../stylesheets/components/MainMap.css'
+import '../stylesheets/components/Search.css'
+import '../stylesheets/index.css'
+import SideDetail from './SideDetail'
+import SideNav from '../components/SideNav'
+import Map from '../components/Map'
 
 export class MainMap extends Component {
   render() {
     return (
-      <div>
+      <div className='main-map-grid'>
+        <input className='search' name='input' placeholder='Search or locate your place'/>
+        <SideDetail />
         <SideNav />
+        <Map />
       </div>
     )
   }
