@@ -11,7 +11,8 @@ export default class SideDetail extends Component {
 
     var p = {
       textAlign: 'center',
-      paddingTop: '3em'
+      paddingTop: '3em',
+      paddingBottom: '3em'
     }
 
     return (

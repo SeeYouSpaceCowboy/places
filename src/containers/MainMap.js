@@ -6,7 +6,7 @@ import SideDetail from './SideDetail'
 import SideNav from '../components/SideNav'
 import Map from '../components/Map'
 
-export class MainMap extends Component {
+export default class MainMap extends Component {
   render() {
     return (
       <div className='main-map-grid'>
@@ -18,5 +18,3 @@ export class MainMap extends Component {
     )
   }
 }
-
-export default (MainMap)
