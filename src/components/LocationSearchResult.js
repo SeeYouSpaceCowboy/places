@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SearchResult = (props) => {
+const LocationSearchResult = (props) => {
   return (
     <div className='search-result'>
       <img src={ props.imgUrl } alt='address'/>
@@ -12,4 +12,4 @@ const SearchResult = (props) => {
   )
 }
 
-export default SearchResult
+export default LocationSearchResult

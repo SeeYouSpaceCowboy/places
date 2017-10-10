@@ -1,11 +1,8 @@
 import React from 'react'
+import markerImg from '../stylesheets/map-pin-b.png'
 
 const MapMarker = (props) => {
-  return (
-    <div>
-      { props.text }
-    </div>
-  )
+  return <img src={ markerImg } />
 }
 
 export default MapMarker
