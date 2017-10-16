@@ -32,6 +32,7 @@ export default class Map extends Component {
           {
             fakerLatLngs.map((fakerLatLng, i) => {
               return <MapMarker
+                        key={ i }
                         lat={ fakerLatLng.lat }
                         lng={ fakerLatLng.lng }
                         text={ 'Marker' }

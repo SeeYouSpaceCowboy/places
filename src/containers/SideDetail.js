@@ -17,12 +17,7 @@ export default class SideDetail extends Component {
 
     return (
       <div className='side-detail'>
-        <div className='search-results'>
-          <LocationSearchResult imgUrl='https://www.silkroadstart.com/wp-content/uploads/2015/05/SRC-Coffee-shop-1.jpg'/>
-          <LocationSearchResult imgUrl='http://asiasociety.org/files/queens_library.jpg'/>
-          <LocationSearchResult imgUrl='https://media.timeout.com/images/101720961/image.jpg'/>
-          <LocationSearchResult imgUrl='https://www.silkroadstart.com/wp-content/uploads/2015/05/SRC-Coffee-shop-1.jpg'/>
-        </div>
+        <div className='search-results'>{ this.renderLocationsList() }</div>
         <p style={ p }>
           Developed with
           <a href='https://www.youtube.com/watch?v=IhP3J0j9JmY' target='_blank' rel='noopener noreferrer' style={ heartLink }>♥</a>
@@ -32,5 +27,24 @@ export default class SideDetail extends Component {
         </p>
       </div>
     )
+  }
+
+  renderLocationsList = () => {
+    let locationsList = this.props.locationsList
+
+    if(locationsList.length === 0) return null
+    debugger
+    return locationsList.map((location) => {
+      return <LocationSearchResult
+                imgUrl={ this.getPhoto(location) }
+                name={ location.name }
+                address={ location.formatted_address } />
+    })
+  }
+
+  getPhoto(location) {
+      if(location.photos) return location.photos[0].getUrl({ 'maxWidth': 500, 'maxHeight': 500 })
+
+      return "https://scontent.fnyc1-1.fna.fbcdn.net/v/t1.0-9/21271150_1104277849702126_1813131630606591040_n.png?oh=1294bcf7903852000ce41eff8deca5f9&oe=5A77D390"
   }
 }

@@ -8,13 +8,28 @@ import SideNav from '../components/SideNav'
 import Map from '../components/Map'
 
 export default class MainMap extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      locationsList: []
+    }
+
+    this.getLocationsList = this.getLocationsList.bind(this)
+  }
+
   render() {
     return (
       <div className='main-map-grid'>
-        <SideDetail />
         <SideNav />
+        <LocationSearch getLocationsList={ this.getLocationsList }/>
+        <SideDetail locationsList={ this.state.locationsList }/>
         <Map />
       </div>
     )
+  }
+
+  getLocationsList(locations) {
+    this.setState({ locationsList: locations })
   }
 }
