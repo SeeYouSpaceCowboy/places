@@ -19,8 +19,6 @@ export default class Map extends Component {
   }
 
   render() {
-    let fakerLatLngs = [{ lat: 40.7473310, lng: -73.8517440 }, { lat: 40.735, lng: -73.95 }]
-
     return (
       <div className='google-map'>
         <GoogleMapReact
@@ -30,12 +28,11 @@ export default class Map extends Component {
           layerTypes={ ['TransitLayer'] } >
 
           {
-            fakerLatLngs.map((fakerLatLng, i) => {
+            this.props.locationsList.map((location, i) => {
               return <MapMarker
                         key={ i }
-                        lat={ fakerLatLng.lat }
-                        lng={ fakerLatLng.lng }
-                        text={ 'Marker' }
+                        lat={ location.geometry.location.lat() }
+                        lng={ location.geometry.location.lng() }
                       />
             })
           }

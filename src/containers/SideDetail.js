@@ -31,9 +31,8 @@ export default class SideDetail extends Component {
 
   renderLocationsList = () => {
     let locationsList = this.props.locationsList
-
     if(locationsList.length === 0) return null
-    debugger
+
     return locationsList.map((location) => {
       return <LocationSearchResult
                 imgUrl={ this.getPhoto(location) }
@@ -43,8 +42,8 @@ export default class SideDetail extends Component {
   }
 
   getPhoto(location) {
-      if(location.photos) return location.photos[0].getUrl({ 'maxWidth': 500, 'maxHeight': 500 })
+      if(location.photos) return location.photos[0].getUrl({ 'maxWidth': 300, 'maxHeight': 300 })
 
-      return "https://scontent.fnyc1-1.fna.fbcdn.net/v/t1.0-9/21271150_1104277849702126_1813131630606591040_n.png?oh=1294bcf7903852000ce41eff8deca5f9&oe=5A77D390"
+      return "http://www.vandemazoraxhoeve.com/wp-content/plugins/breedr/assets/no-image-available.png"
   }
 }

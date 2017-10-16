@@ -24,7 +24,7 @@ export default class MainMap extends Component {
         <SideNav />
         <LocationSearch getLocationsList={ this.getLocationsList }/>
         <SideDetail locationsList={ this.state.locationsList }/>
-        <Map />
+        <Map locationsList={ this.state.locationsList }/>
       </div>
     )
   }
