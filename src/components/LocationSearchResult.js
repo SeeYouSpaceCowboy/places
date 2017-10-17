@@ -5,8 +5,15 @@ const LocationSearchResult = (props) => {
     <div className='search-result'>
       <img src={ props.imgUrl } alt='address'/>
       <div className='search-info'>
-        <h2>{ props.name }</h2>
-        <p>{ props.address }</p>
+        <div className='search-buttons'>
+          <button>Love</button>
+          <button>Want</button>
+          <button>Save</button>
+        </div>
+        <div className='search-address'>
+          <h2>{ props.name }</h2>
+          <p>{ props.address }</p>
+        </div>
       </div>
     </div>
   )

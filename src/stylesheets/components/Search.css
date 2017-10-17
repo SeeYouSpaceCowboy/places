@@ -3,6 +3,9 @@
   grid-column-end: 3;
   grid-row-start: 1;
   width: 100%;
+}
+
+.search > input {
   background-color: #1C1E2C;
   color: #fff;
 }
@@ -14,7 +17,7 @@
 .search-result {
   display: block;
   width: 100%;
-  height: 15em;
+  height: 18em;
   overflow: hidden;
   background-color: #3B3D55;
   margin-bottom: 0.1em;
@@ -24,7 +27,6 @@
 .search-result > img {
   width: inherit;
   position: absolute;
-  top: -1em;
 }
 
 .search-info {
@@ -36,9 +38,36 @@
   z-index: 1;
   padding: 1em;
   color: #fff;
+  display: flex;
+  flex-direction: column-reverse;
+  background: linear-gradient(rgba(0, 0, 0, 0) 30%, rgba(20, 20, 20, 0.5));
 }
 
 .search-info:hover {
   transition: all 0.2s ease-in;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.search-info:hover > .search-buttons {
+  transition: all 0.2s ease-in;
+  height: 5em;
+  display: block;
+}
+
+.search-address {
+  padding: 1em;
+}
+
+.search-buttons {
+  height: 0;
+  overflow: hidden;
+}
+
+.search-buttons > button {
+  width: 3em;
+  height: 4em;
+  overflow: hidden;
+  margin-left: 1em;
+  margin-right: 1em;
+  border-radius: 100%;
 }

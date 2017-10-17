@@ -9,7 +9,7 @@ const SideNav = () => {
   return (
     <div className='side-nav'>
       <ul>
-        <li><img className='icon' src={ Home } alt='Home' /></li>
+        <li style={ { backgroundColor: 'skyblue' } }><img className='icon' src={ Home } alt='Home' /></li>
         <li><img className='icon' src={ Heart } alt='Love' /></li>
         <li><img className='icon' src={ Pin } alt='Want' /></li>
         <li><img className='icon' src={ Marker } alt='Location' /></li>
