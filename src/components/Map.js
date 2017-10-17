@@ -4,23 +4,125 @@ import MapMarker from './MapMarker'
 import '../stylesheets/components/GoogleMap.css'
 
 export default class Map extends Component {
-  static createMapOptions = (maps) => {
-    return {
-      panControl: true,
-      mapTypeControl: true,
-      scrollwheel: true,
-      styles: [{ stylers: [{ 'saturation': -100 }, { 'gamma': 0.8 }, { 'lightness': 4 }, { 'visibility': 'on' }] }]
-    }
-  }
-
   static defaultProps = {
     center: { lat: 40.7081160, lng: -73.9570700 },
     zoom: 12
   }
 
-  render() {
-    let fakerLatLngs = [{ lat: 40.7473310, lng: -73.8517440 }, { lat: 40.735, lng: -73.95 }]
+  createMapOptions(maps) {
+    return {
+      panControl: false,
+      mapTypeControl: false,
+      scrollwheel: false,
+      styles: [
+        {
+            "featureType": "landscape",
+            "stylers": [
+                {
+                    "hue": "#F1FF00"
+                },
+                {
+                    "saturation": -27.4
+                },
+                {
+                    "lightness": 9.4
+                },
+                {
+                    "gamma": 1
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway",
+            "stylers": [
+                {
+                    "hue": "#0099FF"
+                },
+                {
+                    "saturation": -20
+                },
+                {
+                    "lightness": 36.4
+                },
+                {
+                    "gamma": 1
+                }
+            ]
+        },
+        {
+            "featureType": "road.arterial",
+            "stylers": [
+                {
+                    "hue": "#00FF4F"
+                },
+                {
+                    "saturation": 0
+                },
+                {
+                    "lightness": 0
+                },
+                {
+                    "gamma": 1
+                }
+            ]
+        },
+        {
+            "featureType": "road.local",
+            "stylers": [
+                {
+                    "hue": "#FFB300"
+                },
+                {
+                    "saturation": -38
+                },
+                {
+                    "lightness": 11.2
+                },
+                {
+                    "gamma": 1
+                }
+            ]
+        },
+        {
+            "featureType": "water",
+            "stylers": [
+                {
+                    "hue": "#00B6FF"
+                },
+                {
+                    "saturation": 4.2
+                },
+                {
+                    "lightness": -63.4
+                },
+                {
+                    "gamma": 1
+                }
+            ]
+        },
+        {
+            "featureType": "poi",
+            "stylers": [
+                {
+                    "hue": "#9FFF00"
+                },
+                {
+                    "saturation": 0
+                },
+                {
+                    "lightness": 0
+                },
+                {
+                    "gamma": 1
+                }
+            ]
+        }
+      ]
+    }
+  }
 
+
+  render() {
     return (
       <div className='google-map'>
         <GoogleMapReact
@@ -30,11 +132,11 @@ export default class Map extends Component {
           layerTypes={ ['TransitLayer'] } >
 
           {
-            fakerLatLngs.map((fakerLatLng, i) => {
+            this.props.locationsList.map((location, i) => {
               return <MapMarker
-                        lat={ fakerLatLng.lat }
-                        lng={ fakerLatLng.lng }
-                        text={ 'Marker' }
+                        key={ i }
+                        lat={ location.geometry.location.lat() }
+                        lng={ location.geometry.location.lng() }
                       />
             })
           }

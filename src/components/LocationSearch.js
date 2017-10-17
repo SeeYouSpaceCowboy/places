@@ -2,28 +2,38 @@ import React, { Component } from 'react'
 const google = window.google
 
 export default class LocationSearch extends Component {
-  static propTypes = {
-    placeholder: React.PropTypes.string,
-    onPlacesChanged: React.PropTypes.func
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      searchBox: null
+    }
+
+    this.inputChange = this.inputChange.bind(this)
   }
 
   render() {
-    return <input className='search' placeholder='Search or locate your place' ref="input" {...this.props} type="text"/>;
-  }
-
-  onPlacesChanged = () => {
-    if (this.props.onPlacesChanged) {
-      this.props.onPlacesChanged(this.searchBox.getPlaces());
-    }
+    return (
+      <div className='search'>
+        <input ref="input" style={{ height: '100%', width: '100%' }} placeholder='Search or locate your place'/>
+      </div>
+    )
   }
 
   componentDidMount() {
-    var input = React.findDOMNode(this.refs.input);
-    this.searchBox = new google.maps.places.SearchBox(input);
-    this.searchBox.addListener('places_changed', this.onPlacesChanged);
+    let input = this.refs.input
+    let searchBox = new google.maps.places.SearchBox(input)
+    searchBox.addListener('places_changed', this.inputChange)
+
+    this.setState({ searchBox: searchBox })
   }
 
   componentWillUnmount() {
-    this.searchBox.removeListener('places_changed', this.onPlacesChanged);
+    this.searchBox.removeListener('places_changed', this.inputChange);
+  }
+
+  inputChange() {
+    let searchBoxList = this.state.searchBox.getPlaces()
+    this.props.getLocationsList(searchBoxList)
   }
 }

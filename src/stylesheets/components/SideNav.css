@@ -12,12 +12,12 @@
 }
 
 .side-nav ul > li {
-  display: block;
-  height: 4em;
-  padding: 0.8em;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4.3em;
 }
 
 .side-nav-active {
-  background-color: blue;
+  background-color: #006B9E;
 }

@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: roboto, sans-serif;
 }
 
 html,
@@ -22,11 +22,20 @@ button {
   font-size: 0.9em;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 1.5px;
+}
+
+h2 {
+  font-weight: 400;
+}
+
 p {
   color: white;
   font-size: 0.95em;
   line-height: 1.5em;
   letter-spacing: 0.5px;
+  font-weight: 100;
 }
 
 a {
