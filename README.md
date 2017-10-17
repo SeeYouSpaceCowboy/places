@@ -11,7 +11,7 @@
 
 <p align="center">
   <img
-    src="https://user-images.githubusercontent.com/7621982/31310444-6a493c88-ab66-11e7-82d2-f1e52cc2e5d4.gif"
+    src="https://user-images.githubusercontent.com/7621982/31673333-f8a87e4e-b32c-11e7-910a-040b96f85ed5.gif"
     alt="Project Euler Screenshot"
     width="700"
     style="box-shadow: 0 0.8em 2em rgba(0, 0, 0, 0.4); border-radius: 0.17em; margin-bottom: 3em;"/>
